@@ -1,0 +1,7 @@
+com\jiaoma\dao\UsersRepository.class
+com\jiaoma\controller\PersonController.class
+main\java\com\jiaoma\config\JdbcConfig.class
+com\jiaoma\pojo\Person.class
+com\jiaoma\controller\HelloController.class
+com\jiaoma\Application.class
+META-INF\spring-configuration-metadata.json
