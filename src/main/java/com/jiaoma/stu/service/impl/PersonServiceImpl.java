@@ -1,14 +1,15 @@
-package com.jiaoma.service.impl;
+package com.jiaoma.stu.service.impl;
 
-import com.jiaoma.dao.UsersRepository;
-import com.jiaoma.pojo.Person;
+import com.jiaoma.stu.dao.UsersRepository;
+import com.jiaoma.stu.pojo.Person;
+import com.jiaoma.stu.service.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
 @Service
-public class PersonServiceImpl implements PersonService{
+public class PersonServiceImpl implements PersonService {
     @Autowired
     private UsersRepository usersRepository;
 

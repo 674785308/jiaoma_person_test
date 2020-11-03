@@ -1,6 +1,6 @@
-package com.jiaoma.service.impl;
+package com.jiaoma.stu.service;
 
-import com.jiaoma.pojo.Person;
+import com.jiaoma.stu.pojo.Person;
 import org.springframework.web.bind.annotation.RequestBody;
 
 public interface PersonService {
@@ -8,7 +8,7 @@ public interface PersonService {
      * 添加方法
      * @param person
      */
-    void addPerson(@RequestBody Person person);
+    void addPerson(Person person);
 
     /**
      * 删除方法

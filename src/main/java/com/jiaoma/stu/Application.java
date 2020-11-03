@@ -1,4 +1,4 @@
-package com.jiaoma;
+package com.jiaoma.stu;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

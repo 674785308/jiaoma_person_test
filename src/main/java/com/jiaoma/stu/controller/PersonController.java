@@ -1,7 +1,7 @@
-package com.jiaoma.controller;
+package com.jiaoma.stu.controller;
 
-import com.jiaoma.pojo.Person;
-import com.jiaoma.service.impl.PersonServiceImpl;
+import com.jiaoma.stu.pojo.Person;
+import com.jiaoma.stu.service.impl.PersonServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

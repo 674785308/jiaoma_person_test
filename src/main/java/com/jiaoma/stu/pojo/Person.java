@@ -1,4 +1,4 @@
-package com.jiaoma.pojo;
+package com.jiaoma.stu.pojo;
 
 import javax.persistence.*;
 

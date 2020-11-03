@@ -1,7 +1,7 @@
-package com.jiaoma.dao;
+package com.jiaoma.stu.dao;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import com.jiaoma.pojo.Person;
+import com.jiaoma.stu.pojo.Person;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
