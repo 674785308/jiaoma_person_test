@@ -1,11 +1,16 @@
 package com.jiaoma.stu.test;
 
+import com.jiaoma.stu.dao.PersonRepositoryPagingAndSorting;
 import com.jiaoma.stu.dao.UsersRepository;
 import com.jiaoma.stu.pojo.Person;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.List;
@@ -16,6 +21,8 @@ import java.util.Optional;
 public class PersonTest {
     @Autowired
     private UsersRepository usersRepository;
+    @Autowired
+    private PersonRepositoryPagingAndSorting personRepositoryPagingAndSorting;
 
     @Test
     public void testSave() {
@@ -83,4 +90,30 @@ public class PersonTest {
         }
 
     }
+
+    @Test
+    public void testPersonRepositorySorting(){
+        Sort.Order order = new Sort.Order(Sort.Direction.DESC,"id");
+        Sort sort = new Sort(order);
+        List<Person> list = (List<Person>) personRepositoryPagingAndSorting.findAll(sort);
+        for (Person person:list){
+            System.out.println(person);
+        }
+
+    }
+    @Test
+    public void testPersonRepositoryPaging(){
+        Pageable pageable = new PageRequest(0,5);
+        Page<Person> page = personRepositoryPagingAndSorting.findAll(pageable);
+        System.out.println("数据的总条数："+page.getTotalElements());
+        System.out.println("总页数："+page.getTotalPages());
+        List<Person> list = page.getContent();
+        for (Person person:list){
+            System.out.println(person);
+        }
+    }
+
+
+
+
 }

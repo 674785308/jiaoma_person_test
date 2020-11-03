@@ -1,9 +1,12 @@
 package com.jiaoma.stu.controller;
 
+import com.jiaoma.stu.dao.PersonRepositoryPagingAndSorting;
 import com.jiaoma.stu.pojo.Person;
 import com.jiaoma.stu.service.impl.PersonServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping(value = "person")
@@ -45,6 +48,15 @@ public class PersonController {
     @PutMapping(path = "update")
     public void update(@RequestBody Person person){
         personService.update(person);
+    }
+
+    /**
+     * 分页查询
+     */
+    @GetMapping(path = "queryByPage")
+    public List<Person> queryByPage(){
+        List<Person> list = personService.queryByPage();
+        return list;
     }
 
 }

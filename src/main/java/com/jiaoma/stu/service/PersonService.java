@@ -3,6 +3,8 @@ package com.jiaoma.stu.service;
 import com.jiaoma.stu.pojo.Person;
 import org.springframework.web.bind.annotation.RequestBody;
 
+import java.util.List;
+
 public interface PersonService {
     /**
      * 添加方法
@@ -27,5 +29,11 @@ public interface PersonService {
      * @param person
      */
     void update(Person person);
+
+    /**
+     * 分页查询
+     * @return
+     */
+    List<Person> queryByPage();
 
 }

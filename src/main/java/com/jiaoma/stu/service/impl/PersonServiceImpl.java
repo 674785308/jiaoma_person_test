@@ -1,17 +1,24 @@
 package com.jiaoma.stu.service.impl;
 
+import com.jiaoma.stu.dao.PersonRepositoryPagingAndSorting;
 import com.jiaoma.stu.dao.UsersRepository;
 import com.jiaoma.stu.pojo.Person;
 import com.jiaoma.stu.service.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
 public class PersonServiceImpl implements PersonService {
     @Autowired
     private UsersRepository usersRepository;
+    @Autowired
+    private PersonRepositoryPagingAndSorting personRepositoryPagingAndSorting;
 
     /**
      *
@@ -53,4 +60,24 @@ public class PersonServiceImpl implements PersonService {
     public void update(Person person) {
         usersRepository.save(person);
     }
+
+    /**
+     * 分页查询
+     * @return
+     */
+    @Override
+    public List<Person> queryByPage() {
+        Pageable pageable = new PageRequest(0,5);
+        Page<Person> page = personRepositoryPagingAndSorting.findAll(pageable);
+        System.out.println("数据的总条数："+page.getTotalElements());
+        System.out.println("总页数："+page.getTotalPages());
+        List<Person> list = page.getContent();
+        for (Person person:list){
+            System.out.println(person);
+        }
+        return list;
+
+    }
+
+
 }
