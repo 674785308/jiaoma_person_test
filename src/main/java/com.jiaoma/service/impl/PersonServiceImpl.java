@@ -1,34 +1,55 @@
-package com.jiaoma.service;
+package com.jiaoma.service.impl;
 
 import com.jiaoma.dao.UsersRepository;
 import com.jiaoma.pojo.Person;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.Optional;
 
 @Service
-public class PersonService {
+public class PersonServiceImpl implements PersonService{
     @Autowired
     private UsersRepository usersRepository;
-    public void addPerson(@RequestBody Person person) {
-         usersRepository.save(person);
 
+    /**
+     *
+     * 添加方法
+     * @param person
+     */
+    @Override
+    public void addPerson(Person person) {
+        usersRepository.save(person);
     }
 
+    /**
+     * 删除方法
+     * @param id
+     */
+    @Override
     public void deletePerson(Integer id) {
         usersRepository.deleteById(id);
     }
-    public void findById(Integer id){
+
+    /**
+     * 通过id查询
+     * @param id
+     */
+    @Override
+    public void findById(Integer id) {
         Optional<Person> person = usersRepository.findById(id);
         if (person.isPresent()){
             Person person1 = person.get();
             System.out.println(person1);
         }
     }
-    public void update(Person person){
+
+    /**
+     * 修改方法
+     * @param person
+     */
+    @Override
+    public void update(Person person) {
         usersRepository.save(person);
     }
-
 }
