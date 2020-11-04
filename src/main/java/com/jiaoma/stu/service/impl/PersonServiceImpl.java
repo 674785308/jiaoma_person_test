@@ -7,7 +7,6 @@ import com.jiaoma.stu.service.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -66,16 +65,16 @@ public class PersonServiceImpl implements PersonService {
      * @return
      */
     @Override
-    public List<Person> queryByPage() {
-        Pageable pageable = new PageRequest(0,5);
-        Page<Person> page = personRepositoryPagingAndSorting.findAll(pageable);
-        System.out.println("数据的总条数："+page.getTotalElements());
+    public Page<Person> queryByPage(PageRequest pageRequest) {
+
+        Page<Person> page = personRepositoryPagingAndSorting.findAll(pageRequest);
+       /* System.out.println("数据的总条数："+page.getTotalElements());
         System.out.println("总页数："+page.getTotalPages());
         List<Person> list = page.getContent();
         for (Person person:list){
             System.out.println(person);
-        }
-        return list;
+        }*/
+        return page;
 
     }
 

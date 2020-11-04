@@ -1,17 +1,27 @@
 package com.jiaoma.stu.pojo;
 
-import javax.persistence.*;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
+import javax.persistence.*;
+@Data
+@NoArgsConstructor
+@ApiModel(value = "person对象模型", description = "")
 @Entity
 @Table(name = "person")
 public class Person {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
+    @ApiModelProperty(value = "ID")
     private Integer id;
     @Column(name = "name")
+    @ApiModelProperty(value = "名字")
     private String name;
     @Column(name = "sex")
+    @ApiModelProperty(value = "性别")
     private String sex;
 
     public Integer getId() {
@@ -53,6 +63,4 @@ public class Person {
         this.sex = sex;
     }
 
-    public Person() {
-    }
 }

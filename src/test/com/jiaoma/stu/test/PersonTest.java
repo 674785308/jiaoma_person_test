@@ -102,8 +102,8 @@ public class PersonTest {
 
     }
     @Test
-    public void testPersonRepositoryPaging(){
-        Pageable pageable = new PageRequest(0,5);
+    public void testPersonRepositoryPaging(PageRequest pageRequest){
+        Pageable pageable = new PageRequest(pageRequest.getPageNumber(),pageRequest.getPageSize());
         Page<Person> page = personRepositoryPagingAndSorting.findAll(pageable);
         System.out.println("数据的总条数："+page.getTotalElements());
         System.out.println("总页数："+page.getTotalPages());
