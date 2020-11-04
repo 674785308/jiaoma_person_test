@@ -5,10 +5,12 @@ import com.jiaoma.stu.pojo.Person;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
-
 import javax.sql.DataSource;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class HelloController {
@@ -22,9 +24,6 @@ public class HelloController {
 
 
 
-
-    @ApiOperation(value = "新增用户",notes="详细描述")
-    @ApiResponses({ @ApiResponse(code = 200, message = "OK") })
     @PostMapping("/user")
     public Person addUser(@RequestBody AddUserParam param) {
         System.err.println(param.getName());

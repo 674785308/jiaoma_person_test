@@ -1,9 +1,0 @@
-main\java\com\jiaoma\config\JdbcConfig.class
-com\jiaoma\stu\dao\UsersRepository.class
-com\jiaoma\stu\service\impl\PersonServiceImpl.class
-com\jiaoma\stu\controller\PersonController.class
-com\jiaoma\stu\pojo\Person.class
-com\jiaoma\stu\controller\HelloController.class
-META-INF\spring-configuration-metadata.json
-com\jiaoma\stu\Application.class
-com\jiaoma\stu\service\PersonService.class
