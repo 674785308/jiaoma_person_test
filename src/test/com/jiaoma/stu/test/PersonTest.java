@@ -91,7 +91,7 @@ public class PersonTest {
 
     }
 
-    @Test
+   /* @Test
     public void testPersonRepositorySorting(){
         Sort.Order order = new Sort.Order(Sort.Direction.DESC,"id");
         Sort sort = new Sort(order);
@@ -112,7 +112,7 @@ public class PersonTest {
             System.out.println(person);
         }
     }
-
+*/
 
 
 

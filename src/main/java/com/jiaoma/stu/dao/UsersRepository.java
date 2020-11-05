@@ -1,5 +1,6 @@
 package com.jiaoma.stu.dao;
 
+import com.jiaoma.stu.pojo.PersonDTO;
 import org.springframework.data.jpa.repository.JpaRepository;
 import com.jiaoma.stu.pojo.Person;
 import org.springframework.data.jpa.repository.Query;

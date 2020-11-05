@@ -1,18 +1,16 @@
 package com.jiaoma.stu.service;
 
 import com.jiaoma.stu.pojo.Person;
+import com.jiaoma.stu.pojo.PersonDTO;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
-import org.springframework.web.bind.annotation.RequestBody;
-
-import java.util.List;
 
 public interface PersonService {
     /**
      * 添加方法
-     * @param person
+     * @param personDTO
      */
-    void addPerson(Person person);
+    void addPerson(PersonDTO personDTO);
 
     /**
      * 删除方法
@@ -28,9 +26,9 @@ public interface PersonService {
 
     /**
      * 修改方法
-     * @param person
+     * @param
      */
-    void update(Person person);
+    void update(PersonDTO personDTO);
 
     /**
      * 分页查询

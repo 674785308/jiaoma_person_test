@@ -1,24 +1,20 @@
 package com.jiaoma.stu.pojo;
 
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import javax.persistence.*;
-@Data
+@ApiModel(value = "person对象模型", description = "")
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity
-@Table(name = "person")
-public class Person {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
+@Data
+public class PersonDTO {
+    @ApiModelProperty(value = "ID")
     private Integer id;
-    @Column(name = "name")
+    @ApiModelProperty(value = "名字")
     private String name;
-    @Column(name = "sex")
+    @ApiModelProperty(value = "性别")
     private String sex;
 
 }

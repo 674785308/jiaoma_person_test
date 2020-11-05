@@ -1,7 +1,9 @@
 package com.jiaoma.stu.controller;
 
 
+import com.jiaoma.stu.dao.PersonConverter;
 import com.jiaoma.stu.pojo.Person;
+import com.jiaoma.stu.pojo.PersonDTO;
 import com.jiaoma.stu.service.impl.PersonServiceImpl;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
@@ -10,13 +12,7 @@ import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import springfox.documentation.annotations.ApiIgnore;
 
 @Api(tags = {"个人"})
@@ -28,12 +24,13 @@ public class PersonController {
 
     /**
      * 添加方法
-     * @param person
+     * @param personDTO
      */
     @ApiOperation(value = "新增用户",notes="详细描述")
     @PostMapping(value = "/addPerson")
-    public void addPerson(@RequestBody Person person) {
-        personService.addPerson(person);
+
+    public void addPerson(PersonDTO personDTO) {
+        personService.addPerson(personDTO);
     }
 
     /**
@@ -41,6 +38,7 @@ public class PersonController {
      * @param id
      */
     @DeleteMapping(value = "/deletePerson")
+    @ApiOperation(value = "删除方法",notes="")
     public void deletePerson(Integer id) {
         personService.deletePerson(id);
     }
@@ -50,22 +48,25 @@ public class PersonController {
      * @param id
      */
     @GetMapping(value = "/findById")
+    @ApiOperation(value = "查询方法",notes="")
     public void findById(Integer id){
         personService.findById(id);
     }
 
     /**
      * 修改方法
-     * @param person
+     * @param personDTO
      */
+    @ApiOperation(value = "修改方法",notes="")
     @PutMapping(value = "/update")
-    public void update(@RequestBody Person person){
-        personService.update(person);
+    public void update( PersonDTO personDTO){
+        personService.update(personDTO);
     }
 
     /**
      * 分页查询
      */
+    @ResponseBody
     @ApiOperation(value = "分页查询",notes="")
 
     @ApiImplicitParams( {

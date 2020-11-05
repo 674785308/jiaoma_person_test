@@ -15,10 +15,10 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class HelloController {
     @Autowired
-    private  DataSource dataSource;
+    //private  DataSource dataSource;
     @GetMapping("hello")
     public String hello(){
-        System.out.println("dataSource = " + dataSource);
+        //System.out.println("dataSource = " + dataSource);
         return "hello,person";
     }
 
