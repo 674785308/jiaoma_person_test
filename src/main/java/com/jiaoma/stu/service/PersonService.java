@@ -1,7 +1,7 @@
 package com.jiaoma.stu.service;
 
 import com.jiaoma.stu.pojo.Person;
-import com.jiaoma.stu.pojo.PersonDTO;
+import com.jiaoma.stu.dto.PersonDto;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 
@@ -10,7 +10,7 @@ public interface PersonService {
      * 添加方法
      * @param personDTO
      */
-    void addPerson(PersonDTO personDTO);
+    void addPerson(PersonDto personDTO);
 
     /**
      * 删除方法
@@ -28,7 +28,7 @@ public interface PersonService {
      * 修改方法
      * @param
      */
-    void update(PersonDTO personDTO);
+    void update(PersonDto personDTO);
 
     /**
      * 分页查询

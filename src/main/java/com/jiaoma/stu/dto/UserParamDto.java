@@ -1,20 +1,20 @@
-package com.jiaoma.stu.pojo;
+package com.jiaoma.stu.dto;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
+
 @ApiModel(value = "person对象模型", description = "")
-@NoArgsConstructor
-@AllArgsConstructor
 @Data
-public class PersonDTO {
+public class UserParamDto {
     @ApiModelProperty(value = "ID")
     private Integer id;
-    @ApiModelProperty(value = "名字")
-    private String name;
+    @ApiModelProperty(value = "名称")
+    @Setter
+    @Getter
+    private String userName;
     @ApiModelProperty(value = "性别")
     private String sex;
-
 }
