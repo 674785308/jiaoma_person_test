@@ -1,9 +1,8 @@
 package com.jiaoma.stu.controller;
 
 
-import com.jiaoma.stu.dao.PersonConverter;
 import com.jiaoma.stu.pojo.Person;
-import com.jiaoma.stu.pojo.PersonDTO;
+import com.jiaoma.stu.dto.PersonDto;
 import com.jiaoma.stu.service.impl.PersonServiceImpl;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
@@ -24,13 +23,13 @@ public class PersonController {
 
     /**
      * 添加方法
-     * @param personDTO
+     * @param personDto
      */
     @ApiOperation(value = "新增用户",notes="详细描述")
     @PostMapping(value = "/addPerson")
 
-    public void addPerson(PersonDTO personDTO) {
-        personService.addPerson(personDTO);
+    public void addPerson(PersonDto personDto) {
+        personService.addPerson(personDto);
     }
 
     /**
@@ -55,12 +54,12 @@ public class PersonController {
 
     /**
      * 修改方法
-     * @param personDTO
+     * @param personDto
      */
     @ApiOperation(value = "修改方法",notes="")
     @PutMapping(value = "/update")
-    public void update( PersonDTO personDTO){
-        personService.update(personDTO);
+    public void update( PersonDto personDto){
+        personService.update(personDto);
     }
 
     /**

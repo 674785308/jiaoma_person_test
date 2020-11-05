@@ -1,10 +1,10 @@
 package com.jiaoma.stu.service.impl;
 
-import com.jiaoma.stu.dao.PersonConverter;
+import com.jiaoma.stu.mapper.PersonConverter;
 import com.jiaoma.stu.dao.PersonRepositoryPagingAndSorting;
 import com.jiaoma.stu.dao.UsersRepository;
 import com.jiaoma.stu.pojo.Person;
-import com.jiaoma.stu.pojo.PersonDTO;
+import com.jiaoma.stu.dto.PersonDto;
 import com.jiaoma.stu.service.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -23,11 +23,11 @@ public class PersonServiceImpl implements PersonService {
     /**
      *
      * 添加方法
-     * @param personDTO
+     * @param personDto
      */
     @Override
-    public void addPerson(PersonDTO personDTO) {
-        Person person = PersonConverter.INSTANCE.domainConcerter(personDTO);
+    public void addPerson(PersonDto personDto) {
+        Person person = PersonConverter.INSTANCE.personDtoToPerson(personDto);
         usersRepository.save(person);
     }
 
@@ -55,11 +55,11 @@ public class PersonServiceImpl implements PersonService {
 
     /**
      * 修改方法
-     * @param personDTO
+     * @param personDto
      */
     @Override
-    public void update(PersonDTO personDTO) {
-        Person person = PersonConverter.INSTANCE.domainConcerter(personDTO);
+    public void update(PersonDto personDto) {
+        Person person = PersonConverter.INSTANCE.personDtoToPerson(personDto);
         usersRepository.save(person);
     }
 
